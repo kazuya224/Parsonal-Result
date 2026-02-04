@@ -96,3 +96,61 @@ export const calcAbhr = (atBats: number, homerun: number): string => {
     const abhr = atBats / homerun;
     return abhr.toFixed(2); // 本塁打率は通常、小数点第2位まで表示
 }
+
+/**
+ * 投球回(IP)を計算用数値に変換 (例: 7.1 -> 7.333)
+ */
+export const convertInnings = (ip: number): number => {
+    const fullInnings = Math.floor(ip);
+    const outs = Math.round((ip - fullInnings) * 10); // .1 や .2 を取り出す
+    return fullInnings + outs / 3;
+};
+
+/**
+ * 防御率 (ERA)
+ */
+export const calcEra = (earnedRuns: number, ip: number): string => {
+    const convertedIp = convertInnings(ip);
+    if (convertedIp === 0) return "-.---";
+    return ((earnedRuns * 9) / convertedIp).toFixed(2);
+};
+
+/**
+ * WHIP (1イニングあたりの許した走者)
+ */
+export const calcWhip = (hits: number, walks: number, ip: number): string => {
+    const convertedIp = convertInnings(ip);
+    if (convertedIp === 0) return "-.--";
+    return ((hits + walks) / convertedIp).toFixed(2);
+};
+
+/**
+ * 奪三振率 (K/9)
+ */
+export const calcK9 = (strikes: number, ip: number): string => {
+    const convertedIp = convertInnings(ip);
+    if (convertedIp === 0) return "-.--";
+    return ((strikes * 9) / convertedIp).toFixed(2);
+};
+
+// 与四球率 (BB/9): (与四球 × 9) ÷ 投球回
+export const calcBb9 = (walks: number, innings: number): string => {
+    if (innings <= 0) return "0.00";
+    const result = (walks * 9) / innings;
+    return result.toFixed(2);
+};
+
+// 勝率: 勝利数 ÷ (勝利数 + 敗戦数)
+export const calcWinRate = (wins: number, losses: number): string => {
+    const totalDecisions = wins + losses;
+    if (totalDecisions <= 0) return ".000";
+    const result = wins / totalDecisions;
+    return result.toFixed(3);
+};
+
+// K/BB: 奪三振 ÷ 与四球
+export const calcKbb = (strikes: number, walks: number): string => {
+    if (walks <= 0) return strikes > 0 ? strikes.toFixed(2) : "0.00";
+    const result = strikes / walks;
+    return result.toFixed(2);
+};
