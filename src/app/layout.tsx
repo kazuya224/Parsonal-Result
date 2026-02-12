@@ -32,6 +32,9 @@ export default function RootLayout({
         {children}
       </body>
       <GoogleAnalytics gaId="G-8EHSFZQ7XL" />
+      <footer className="py-4 text-center">
+        <a href="/privacy" className="text-blue-600 hover:underline">プライバシーポリシー</a>
+      </footer>
     </html>
   );
 }
