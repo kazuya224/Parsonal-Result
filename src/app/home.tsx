@@ -52,7 +52,7 @@ export default function Home() {
       params.set("pb", rawValues.walks.toString()); // pWalks
       params.set("pk", rawValues.strikes.toString()); // pStrikes
       params.set("wins", rawValues.wins.toString())
-      params.set("wins", rawValues.losses.toString())
+      params.set("losses", rawValues.losses.toString())
       
       shareText += `防御率: ${stats.era}\nWHIP: ${stats.whip}\n`;
     }
@@ -79,7 +79,7 @@ export default function Home() {
       <main className="max-w-6xl mx-auto">
         <header className="mb-12 text-center">
           <h1 className="text-4xl font-black italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 uppercase">
-            野球成績計算機
+          【無料】野球成績計算機｜打率・OPS・防御率を一瞬で計算
           </h1>
         </header>
 

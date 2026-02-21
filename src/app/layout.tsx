@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "野球成績計算機 | 打率・個人成績・OPSを自動計算",
+  title: "【無料】野球成績計算機｜打率・OPS・防御率を一瞬で計算",
   description: "草野球や部活動の個人成績を簡単に管理。打席数や安打を入力するだけで、打率、出塁率、OPS、セイバーメトリクス指標を瞬時に計算します。SNS共有機能付き。",
   verification: {google:"MKEF_smWrAbRGi3_yRA8pKHuZsnBMgxdywD9RCVe5YU",},
 };
@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ja">
       <head>
         {/* AdSense 審査用コードをここに追加 */}
         <Script
