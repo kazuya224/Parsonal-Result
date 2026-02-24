@@ -23,31 +23,31 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="ja">
       <head>
-        {/* AdSense 審査用コードをここに追加 */}
         <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6133318886564900"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
         />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-      </body>
-      <GoogleAnalytics gaId="G-8EHSFZQ7XL" />
-      <footer className="py-4 text-center">
-        <a href="/privacy" className="text-blue-600 hover:underline">プライバシーポリシー</a>
-      </footer>
-      <body>
-        {children}
+
+        <footer className="py-4 text-center">
+          <a href="/privacy" className="text-blue-600 hover:underline">
+            プライバシーポリシー
+          </a>
+        </footer>
+
+        <GoogleAnalytics gaId="G-8EHSFZQ7XL" />
         <Analytics />
       </body>
     </html>
