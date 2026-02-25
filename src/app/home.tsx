@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import ModeTabs from "@/components/common/ModeTabs";
 import StructuredData from "@/components/seo/StructuredData";
@@ -19,6 +19,10 @@ import PitcherResults from "@/components/pitcher/PitcherResults";
 export default function Home() {
   const searchParams = useSearchParams();
   const [mode, setMode] = useState<'batter' | 'pitcher'>('batter');
+  useEffect(() => {
+    const m = searchParams.get("mode");
+    if (m === "pitcher") setMode("pitcher");
+  }, [searchParams]);
   const batterData = useBatterStats(searchParams);
   const pitcherData = usePitcherStats();
 
