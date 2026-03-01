@@ -77,7 +77,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0f172a] text-slate-200 py-6 md:py-12 px-4 border-t-4 border-blue-500">
+    <div className="bg-[#0f172a] text-slate-200 py-6 md:py-12 px-4 border-t-4 border-blue-500">
       <StructuredData />
       
       <main className="max-w-6xl mx-auto">

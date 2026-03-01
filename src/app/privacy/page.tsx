@@ -1,10 +1,12 @@
 import React from 'react';
+import Link from 'next/link';
 
 export default function PrivacyPolicy() {
   return (
-    <main className="max-w-4xl mx-auto p-6 md:p-12 text-gray-800 leading-relaxed">
-      <h1 className="text-3xl font-bold mb-8 border-b pb-2">プライバシーポリシー</h1>
-
+    <main className="max-w-4xl mx-auto p-6 md:p-12 text-slate-200 leading-relaxed">
+      <h1 className="text-3xl font-bold mb-8 border-b border-slate-700 pb-2">
+        プライバシーポリシー
+      </h1>
       <section className="mb-8">
         <h2 className="text-xl font-semibold mb-4">1. 広告の配信について</h2>
         <p>
@@ -34,7 +36,11 @@ export default function PrivacyPolicy() {
         <h2 className="text-xl font-semibold mb-4">4. 著作権について</h2>
         <p>
           当サイトに掲載されている文章・画像の無断転載を禁止します。
-          当サイトは著作権の侵害を目的としたものではありません。著作権や肖像権に関して問題がございましたら、お問い合わせフォームよりご連絡ください。
+          当サイトは著作権の侵害を目的としたものではありません。著作権や肖像権に関して問題がございましたら、
+          <Link href="/contact" className="text-blue-600 hover:underline">
+            お問い合わせフォーム
+          </Link>
+          よりご連絡ください。
         </p>
       </section>
 
